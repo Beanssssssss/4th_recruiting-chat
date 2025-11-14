@@ -3,12 +3,28 @@ from pydantic import BaseModel, field_validator
 import datetime
 
 
+# 🔹 Answer 스키마 (Question 안에 들어갈 버전)
+class AnswerInQuestion(BaseModel):
+    id: int
+    content: str
+    create_date: datetime.datetime
+    modify_date: Optional[datetime.datetime] = None
+
+    class Config:
+        orm_mode = True
+
+
+# 🔹 Question 스키마 (답변 포함)
 class Question(BaseModel):
     id: int
     subject: str
     content: str
     create_date: datetime.datetime
     modify_date: Optional[datetime.datetime] = None
+    answers: List[AnswerInQuestion] = []   # ★ 추가됨!!
+
+    class Config:
+        orm_mode = True
 
 
 class QuestionCreate(BaseModel):
@@ -34,10 +50,3 @@ class QuestionUpdate(QuestionCreate):
 
 class QuestionDelete(BaseModel):
     question_id: int
-
-
-
-
-
-
-
