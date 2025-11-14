@@ -1,0 +1,33 @@
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.env/
+env/
+
+# Alembic migration env (keep versions!)
+# Don't ignore alembic.ini or versions/
+# alembic.ini  <-- 포함해야 함
+# alembic/versions/  <-- 포함해야 함
+
+# Environment variables
+.env
+*.env
+
+# Logs
+*.log
+
+# Cache
+.cache/
+*.sqlite3
+
+# OS files
+.DS_Store
+
+# Editor folders
+.vscode/
+.idea/
